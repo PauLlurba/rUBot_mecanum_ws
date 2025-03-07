@@ -16,6 +16,31 @@ def triangular_path(v, td):
     move_rubot(-v,v,0,td/sqrt(2))
     move_rubot(-v,-v,0,td/sqrt(2))
 
+def rombe_path(v, td):
+    move_rubot(v,0,0,td)
+    move_rubot(-v,v,0,td/sqrt(2))
+    move_rubot(-v,0,0,td)
+    move_rubot(v,-v,0,td/sqrt(2))
+
+def star_path(v, td):
+    move_rubot(v,0,0,td)
+    move_rubot(-v,v,0,td/sqrt(2))
+    move_rubot(-v,v,0,td/sqrt(2))
+    move_rubot(-v,0,0,td)
+
+
+    # # Segmento 1: hacia la derecha
+    # move_rubot(v, 0, 0, td)
+    # # Segmento 2: diagonal arriba-izquierda
+    # move_rubot(-v, v, 0, td / sqrt(2))
+    # # Segmento 3: diagonal abajo
+    # move_rubot(0, -v, 0, td)
+    # # Segmento 4: diagonal arriba-derecha
+    # move_rubot(v, v, 0, td / sqrt(2))
+    # # etc.
+
+
+
 
 if __name__ == '__main__':
     try:
@@ -30,6 +55,10 @@ if __name__ == '__main__':
 
         elif path == "Triangular":
             triangular_path(v, td)
+        elif path == "Rombe":
+            rombe_path(v, td)
+        elif path == "Star":
+            star_path(v, td)
         else:
             print('Error: unknown movement')
 
